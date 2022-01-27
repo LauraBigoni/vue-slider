@@ -34,6 +34,7 @@ const app = new Vue({
     data: {
         // Setto il currentindex per tenere traccia dell'immagine corrente visualizzata in pagina
         currentIndex: 0,
+
         // Aggiungo le immagini
         images: [
             'images/image1.jpg',
@@ -42,7 +43,18 @@ const app = new Vue({
             'images/image4.jpg',
         ]
     },
+    
     methods: {
+        // Imposto una classe active
+        activeImg(index) {
+            return index === this.currentIndex;
+        },
+
+        // Imposto l'immagine attuale 
+        setImg(index) {
+            this.currentIndex === index;
+        },
+
         // scorro le immagini cliccando sulle freccette
         prevImg() {
             this.currentIndex--;
@@ -50,6 +62,5 @@ const app = new Vue({
         nextImg() {
             this.currentIndex++;
         },
-        
     },
 });
