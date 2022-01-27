@@ -43,6 +43,13 @@ const app = new Vue({
         ]
     },
     methods: {
-
+        // scorro le immagini cliccando sulle freccette
+        prevImg() {
+            this.currentIndex--;
+        },
+        nextImg() {
+            this.currentIndex++;
+        },
+        
     },
 });
