@@ -25,7 +25,7 @@
         </div>
         <div class="col-6">
           <div class="slider d-flex align-items-center">
-            <img class="img-fluid" src="images/image1.jpg" alt="" />
+            <img v-for="(image, index) in images" class="img-fluid" :src="image" :alt="`image ${index}`" />
             <div class="slider-dots">
               <div class="dot mx-2 active"></div>
               <div class="dot mx-2"></div>
