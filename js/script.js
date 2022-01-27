@@ -49,24 +49,35 @@ const app = new Vue({
         activeImg(index) {
             return this.currentIndex === index;
         },
-
         // Cliccando i pallini viene selezionata l'immagine corrispondente
         setImg(index) {
             this.currentIndex = index;
         },
-
         // Scorro le immagini cliccando sulle freccette
         prevImg() {
             // Se stiamo visualizzando la prima immagine torniamo all'ultima
             if (this.currentIndex === 0) {
-                this.currentIndex = this.images.length;
+                this.currentIndex += this.images.length;
             } this.currentIndex--;
         },
         nextImg() {
             // Se stiamo visualizzando l'ultima  immagine torniamo alla prima 
-            if (this.currentIndex === 3) {
-                this.currentIndex = this.images.length;
+            if (this.currentIndex === (this.images.length - 1)) {
+                this.currentIndex -= this.images.length;
             } this.currentIndex++;
+        },
+        startAutoplay() {
+            // Applico l'autoplay allo slider ogni 3 sec
+            this.autoplay = setInterval(this.nextImg, 3000)
+            this.isAutoplay = true;
+        },
+        stopAutoplay() {
+            // Tolgo l'autoplay allo slider
+            clearInterval(this.autoplay);
+            this.isAutoplay = false;
+        },
+        addAutoplay() {
+            this.startAutoplay();
         },
     },
 });
