@@ -76,8 +76,5 @@ const app = new Vue({
             clearInterval(this.autoplay);
             this.isAutoplay = false;
         },
-        addAutoplay() {
-            this.startAutoplay();
-        },
     },
 });
