@@ -30,7 +30,7 @@
               :alt="`image ${index +1}`" :class="{active : activeImg(index)}" />
             <div class="slider-dots">
               <div v-for="(image, index) in images" class="dot mx-2" :class="{active : activeImg(index)}"
-                @click="setImg(index)"></div>
+                @click="setImg(index)" @mouseenter="stopAutoplay" @mouseleave="startAutoplay"></div>
             </div>
           </div>
         </div>
