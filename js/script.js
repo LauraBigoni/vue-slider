@@ -58,15 +58,15 @@ const app = new Vue({
         // Scorro le immagini cliccando sulle freccette
         prevImg() {
             // Se stiamo visualizzando la prima immagine torniamo all'ultima
-            if (this.currentIndex == this.images.length) {
-                this.currentIndex += this.images.length;
-            } else this.currentIndex--;
+            if (this.currentIndex === 0) {
+                this.currentIndex = this.images.length;
+            } this.currentIndex--;
         },
         nextImg() {
             // Se stiamo visualizzando l'ultima  immagine torniamo alla prima 
-            if (this.currentIndex == this.images.length) {
-                this.currentIndex -= this.images.length;
-            } else this.currentIndex++;
+            if (this.currentIndex === 3) {
+                this.currentIndex = this.images.length;
+            } this.currentIndex++;
         },
     },
 });
