@@ -5,18 +5,18 @@ Vue.config.devtools = true;
 TRACCIA:
 
 Partendo dal markup fornito in allegato, implementare la logica per far funzionare lo slider:
+
 Deve essere possibile scorrere le immagini cliccando sulle freccette.
 I pallini in basso devono illuminarsi in base all'immagine che sto visualizzando.
 Far si che cliccando i pallini, venga selezionata l'immagine corrispondente.
 
-Note:  
-scegliamo una delle due seguenti soluzioni per le freccette;
 Se stiamo visualizzando la prima immagine, la freccetta di sinistra può:
 a- scomparire
 b- passare all'ultima immagine
+
 Se stiamo visualizzando l'ultima immagine, la freccetta  a destra può:
-scomparire
-c- passare alla prima immagine
+a- scomparire
+b- passare alla prima immagine
 
 Siate coerenti: o scompaiono o continuano a navigare, no a soluzioni miste!!
 
@@ -41,7 +41,7 @@ const app = new Vue({
             'images/image2.jpg',
             'images/image3.jpg',
             'images/image4.jpg',
-        ]
+        ],
     },
 
     methods: {
@@ -50,17 +50,23 @@ const app = new Vue({
             return this.currentIndex === index;
         },
 
-        // Imposto l'immagine attuale 
+        // Cliccando i pallini viene selezionata l'immagine corrispondente
         setImg(index) {
             this.currentIndex = index;
         },
 
-        // scorro le immagini cliccando sulle freccette
+        // Scorro le immagini cliccando sulle freccette
         prevImg() {
-            this.currentIndex--;
+            // Se stiamo visualizzando la prima immagine torniamo all'ultima
+            if (this.currentIndex == images.length) {
+                this.currentIndex = 3;
+            } else this.currentIndex--;
         },
         nextImg() {
-            this.currentIndex++;
+            // Se stiamo visualizzando l'ultima  immagine torniamo alla prima 
+            if (this.currentIndex == images.length) {
+                this.currentIndex = 0;
+            } else this.currentIndex++;
         },
     },
 });
