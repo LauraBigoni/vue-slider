@@ -43,16 +43,16 @@ const app = new Vue({
             'images/image4.jpg',
         ]
     },
-    
+
     methods: {
         // Imposto una classe active
         activeImg(index) {
-            return index === this.currentIndex;
+            return this.currentIndex === index;
         },
 
         // Imposto l'immagine attuale 
         setImg(index) {
-            this.currentIndex === index;
+            this.currentIndex = index;
         },
 
         // scorro le immagini cliccando sulle freccette
