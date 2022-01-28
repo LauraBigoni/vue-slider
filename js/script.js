@@ -35,6 +35,10 @@ const app = new Vue({
         // Setto il currentindex per tenere traccia dell'immagine corrente visualizzata in pagina
         currentIndex: 0,
 
+        // Creo delle proprietà per l'autoplay
+        autoplay: undefined,
+        isAutoplay: false,
+
         // Aggiungo le immagini
         images: [
             'images/image1.jpg',
@@ -56,15 +60,13 @@ const app = new Vue({
         // Scorro le immagini cliccando sulle freccette
         prevImg() {
             // Se stiamo visualizzando la prima immagine torniamo all'ultima
-            if (this.currentIndex === 0) {
-                this.currentIndex += this.images.length;
-            } this.currentIndex--;
+            if (this.currentIndex === 0) this.currentIndex = this.images.length - 1;
+            else this.currentIndex--;
         },
         nextImg() {
             // Se stiamo visualizzando l'ultima  immagine torniamo alla prima 
-            if (this.currentIndex === (this.images.length - 1)) {
-                this.currentIndex -= this.images.length;
-            } this.currentIndex++;
+            if (this.currentIndex === (this.images.length - 1)) this.currentIndex = 0;
+            else this.currentIndex++;
         },
         startAutoplay() {
             // Applico l'autoplay allo slider ogni 3 sec
